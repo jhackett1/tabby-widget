@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
   // First, make the tabs clickable because that doesn't need any data from the server
   makeTabsNavigable()
   // Request data for the initially visible tab first, followed by the invisible ones
-  populateContent("/search?section=uk-news", document.querySelector(".tabs__panel#panel1"))
-  populateContent("/search?section=football", document.querySelector(".tabs__panel#panel2"))  
-  populateContent("/search?section=travel", document.querySelector(".tabs__panel#panel3"))
+  populateContent("/search?section=uk-news&show-fields=trailText&page-size=5", document.querySelector(".tabs__panel#panel1"))
+  populateContent("/search?section=football&show-fields=trailText&page-size=5", document.querySelector(".tabs__panel#panel2"))  
+  populateContent("/search?section=travel&show-fields=trailText&page-size=5", document.querySelector(".tabs__panel#panel3"))
 })
 
 function makeTabsNavigable(){
@@ -52,13 +52,15 @@ function populateContent(path, panel){
 
 // Take an array of data and add a list to the DOM based on that data
 function createList(stories, panel){
+  
+  console.log(stories)
   let ol = document.createElement('ol')
   ol.classList.add('stories')
   // And create an li element for each story in the array
   for(let i = 0; i<stories.length; i++){
     let li = document.createElement('li')
     li.classList.add('stories__story')
-    li.innerHTML = `<a class="stories__story-link" href="${stories[i].webUrl}" target="blank"><p>${stories[i].webTitle}</p></a>`
+    li.innerHTML = `<a class="stories__story-link" href="${stories[i].webUrl}" target="blank"><h3 class="stories__story-headline">${stories[i].webTitle}</h3><p class="stories__story-trail">${stories[i].fields.trailText}</p></a>`
     ol.appendChild(li)  
   }
   // Clear out any existing content, then append the ol element we've just built
