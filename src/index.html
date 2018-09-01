@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-gb">
+  <head>
+    <title>Some tabs!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+  </head>
+  <body>
+  <div class="presentation">
+    <section class="tabs">
+      <ol class="tabs__list">
+        <li id="tab1" class="tabs__tab tabs__tab--active" role="tab">
+          <a class="tabs__tab-link" href="#panel1">UK News</a>
+        </li>
+        <li id="tab2" class="tabs__tab" role="tab">
+          <a class="tabs__tab-link" href="#panel2">Football</a>
+        </li>
+        <li id="tab3" class="tabs__tab" role="tab">
+          <a class="tabs__tab-link" href="#panel3">Travel</a>
+        </li>
+      </ol>
+      <!--  No universal name for the content area of a tabbed widget, so let's just use ARIA's term; "panel"  -->
+        <div id="panel1" class="tabs__panel tabs__panel--active" role="tabpanel" aria-labelledby="tab1">
+          <noscript>This content needs Javascript to work. Try again with a browser that supports Javascript.</noscript>
+        </div>
+        <div id="panel2" class="tabs__panel" role="tabpanel" aria-labelledby="tab2">
+        </div>
+        <div id="panel3" class="tabs__panel" role="tabpanel" aria-labelledby="tab3">
+        </div>
+    </section>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

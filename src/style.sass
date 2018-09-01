@@ -1,0 +1,79 @@
+$blue: #005689
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+// For consistency  
+*
+  font-family: sans-serif
+  box-sizing: border-box
+
+// Put the widget in the centre of the page
+.presentation
+  max-width: 600px
+  margin: 20px auto
+
+.tabs
+  border: 1px solid $blue
+  border-radius: 10px
+  overflow: hidden
+  
+.tabs__list
+  list-style-type: none
+  margin: 0
+  padding: 0
+  background-color: $blue
+  
+.tabs__tab-link
+  text-align: center
+  display: inline-block
+  padding: 10px
+  width: 100%
+  color: white
+  text-decoration: none
+.tabs__tab--active
+  background-color: white
+  pointer-events: none
+  font-weight: bold
+  .tabs__tab-link
+    color: $blue
+  
+// Bring the navigation up into a single row on larger screens
+@media screen and (min-width: 300px)
+  .tabs__list
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+  .tabs__tab
+    flex: 1
+  
+// Only show the currently active tab
+.tabs__panel
+  padding: 10px
+  display: none
+.tabs__panel--active
+  display: block
+  
+// The list of stories is a seperate block, as far as BEM is concerned
+.stories
+  padding: 0px
+  margin: 0px
+  list-style-type: none
+  animation: fadeIn 0.1s ease-in
+  
+.stories__story
+  border-bottom: 0.5px dotted transparentize($blue, 0.75)
+  color: darken($blue, 10)
+  padding: 0px
+  margin: 15px
+  &:last-of-type
+    border-bottom: none
+  
+.stories__story-link
+  text-decoration: none
+  color: darken($blue, 10)
+  &:hover
+    text-decoration: underline
