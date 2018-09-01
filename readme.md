@@ -5,8 +5,6 @@ A 'lil three-tabbed widget, loading data in from the Guardian content API.
 
 To run it, just open `/dist/index.html` in a browser.
 
-Here
-
 Making changes
 --------------
 
