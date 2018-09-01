@@ -11,6 +11,7 @@ $blue: #005689
   font-family: sans-serif
   box-sizing: border-box
 
+
 // Put the widget in the centre of the page
 .presentation
   max-width: 600px
@@ -18,7 +19,7 @@ $blue: #005689
 
 .tabs
   border: 1px solid $blue
-  border-radius: 10px
+  border-radius: 5px
   overflow: hidden
   
 .tabs__list
@@ -30,14 +31,16 @@ $blue: #005689
 .tabs__tab-link
   text-align: center
   display: inline-block
-  padding: 10px
+  padding: 15px 10px
   width: 100%
   color: white
   text-decoration: none
+  font-size: 0.9em
 .tabs__tab--active
   background-color: white
   pointer-events: none
   font-weight: bold
+  font-size: 1.1em
   .tabs__tab-link
     color: $blue
   
@@ -52,7 +55,6 @@ $blue: #005689
   
 // Only show the currently active tab
 .tabs__panel
-  padding: 10px
   display: none
 .tabs__panel--active
   display: block
@@ -62,21 +64,32 @@ $blue: #005689
   padding: 0px
   margin: 0px
   list-style-type: none
-  animation: fadeIn 0.1s ease-in
+  animation: fadeIn 0.15s ease-in
   
 .stories__story
   border-bottom: 0.5px dotted transparentize($blue, 0.75)
   color: darken($blue, 10)
+  margin: 0px
   padding: 0px
-  margin: 15px
   &:last-of-type
     border-bottom: none
   
 .stories__story-link
+  display: block
+  padding: 5px 20px
   text-decoration: none
   color: darken($blue, 10)
+  transition: 0.05s ease-in
   &:hover
     text-decoration: underline
+  
+.stories__story-thumbnail
+  display: none
+  @media screen and (min-width: 500px)
+    display: inline
+    float: left
+    max-width: 140px
+    margin: 20px 20px 20px 0px
   
 .stories__story-headline
   margin-bottom: 10px
